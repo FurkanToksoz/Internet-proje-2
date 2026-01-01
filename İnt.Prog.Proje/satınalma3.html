@@ -191,19 +191,19 @@
 
     <script>
         function siparisVer() {
-         
+           
             const adSoyad = document.getElementById('cardName').value;
             const kartNo = document.getElementById('cardNumber').value;
             const sonKulTar = document.getElementById('cardExpiry').value;
             const cvc = document.getElementById('cardCVC').value;
 
-         
+          
             if (!adSoyad || !kartNo || !sonKulTar || !cvc) {
                 alert("Lütfen tüm alanları doldurunuz.");
                 return;
             }
 
-           
+            
             const siparis = {
                 urun: "Dürüm + Pepsi Menü", 
                 fiyat: "6$",
@@ -214,10 +214,10 @@
                 tarih: new Date().toLocaleString('tr-TR')
             };
 
-           
+          
             let siparisler = JSON.parse(localStorage.getItem('siparisler')) || [];
 
-          
+           
             siparisler.push(siparis);
 
           
