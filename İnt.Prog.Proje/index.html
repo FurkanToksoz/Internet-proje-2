@@ -220,7 +220,7 @@
 
     </div>
 
-    <!-- Siparişler Bölümü -->
+   
     <div class="container py-5" id="siparisler-container" style="display: none;">
       <h2 class="text-white border-bottom pb-2 mb-4">Son Siparişler</h2>
       <div class="table-responsive">
@@ -237,7 +237,7 @@
             </tr>
           </thead>
           <tbody id="siparis-tablosu">
-            <!-- Javascript ile doldurulacak -->
+            
           </tbody>
         </table>
       </div>
@@ -259,7 +259,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
-  <!-- Bootstrap Icons Font -->
+ 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <script>
@@ -274,10 +274,9 @@
 
       if (siparisler.length > 0) {
         container.style.display = 'block';
-        tabloBody.innerHTML = ''; // Temizle
+        tabloBody.innerHTML = '';
 
-        // Siparişleri orijinal indexleriyle işle, sonra ters çevirip ekrana bas
-        // Böylece en yeni en üstte olur ama silme indexi bozulmaz
+      
         const satirlar = siparisler.map((siparis, index) => {
           return `
                       <tr>
@@ -296,7 +295,7 @@
                   `;
         });
 
-        // Satırları ters sırada ekle (Son eklenen en üstte)
+     
         tabloBody.innerHTML = satirlar.reverse().join('');
       } else {
         container.style.display = 'none';
@@ -306,16 +305,16 @@
     function siparisSil(index) {
       if (confirm("Bu siparişi silmek istediğinize emin misiniz?")) {
         let siparisler = JSON.parse(localStorage.getItem('siparisler')) || [];
-        siparisler.splice(index, 1); // Belirtilen indexteki elemanı sil
+        siparisler.splice(index, 1); 
         localStorage.setItem('siparisler', JSON.stringify(siparisler));
-        siparisleriListele(); // Listeyi güncelle
+        siparisleriListele(); 
       }
     }
 
     function siparisleriTemizle() {
       if (confirm("Tüm sipariş geçmişini silmek istediğinize emin misiniz?")) {
         localStorage.removeItem('siparisler');
-        siparisleriListele(); // Listeyi güncelle
+        siparisleriListele(); 
       }
     }
 
@@ -324,10 +323,11 @@
       document.getElementById("timename2").style.setProperty("color", "red", "important");
       document.getElementById("timename3").style.setProperty("color", "red", "important");
 
-      // Siparişleri listele
+     
       siparisleriListele();
     };
   </script>
 </body>
 
 </html>
+
