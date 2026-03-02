@@ -1,0 +1,41 @@
+using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using Desktop.Models;
+using Microsoft.VisualBasic;
+
+namespace Desktop.Controllers;
+
+public class CourseController : Controller
+{
+    private readonly ILogger<CourseController> _logger;
+
+    public CourseController(ILogger<CourseController> logger)
+    {
+        _logger = logger;
+    }
+
+    public IActionResult Index()
+    {
+        var kurs = new Kurs();
+        kurs.Id = 1;
+        kurs.Title = "Aspent core kursu";
+        kurs.Description="MVC çok güzel";
+
+        return View(kurs);
+    }
+
+        public IActionResult List()
+    {
+        var kurslar = new List<Kurs>()
+        {
+            new Kurs() {Id=1, Title = "aspnetcore",Description=""},
+            new Kurs() {Id=2, Title = "javascript",Description=""},
+            new Kurs() {Id=3, Title = "phyton",Description=""},
+            new Kurs() {Id=4, Title = "sql server",Description=""}
+        };
+        return View(kurslar);
+
+    }
+
+
+}
