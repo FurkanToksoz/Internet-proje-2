@@ -1,0 +1,50 @@
+@using Desktop.Models
+@model List<Kurs>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+          integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Course List</title>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Course List</h2>
+            </div>
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Kurs Adı</th>
+                                <th scope="col">Açıklama</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var kurs in Model)
+                            {
+                                <tr>
+                                    <td>@kurs.Id</td>
+                                    <td>@kurs.Title</td>
+                                    <td>@kurs.Description</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
